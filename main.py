@@ -58,7 +58,7 @@ correct_letters = {
     'n': 'q',
     'o': 'x',
     'p': 'd',
-    'q': '',
+    'q': 'j',
     'r': 'o',
     's': 't',
     't': 'y',
@@ -66,7 +66,7 @@ correct_letters = {
     'v': 'k',
     'w': 'p',
     'x': 'u',
-    'y': '',
+    'y': 'z',
     'z': 'f'
 }
 
