@@ -40,6 +40,7 @@ sorted_words = sorted(a.items(), key=lambda item: item[1], reverse=True)
 for y in range(len(sorted_words)):
     print(sorted_words[y])
 
+# Dictionary for the correct letters derived from the testing
 correct_letters = {
     'a': 'l',
     'b': 'h',
