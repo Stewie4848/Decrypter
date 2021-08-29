@@ -1,4 +1,5 @@
 from collections import Counter
+import csv
 
 cipher = "uosulmkgu fumucfjb bcm euul jrlpxjsup kl rfpuf sr kdwfrgu sbu mujxfkst clp uzzkjkuljt rz uaujsfrlkj " \
          "cxjskrlm. briuguf, lrs dxjb cssulskrl bcm euul wckp sr sbu pumkhl kmmxum. kl sbkm wcwuf, iu pkmjxmm " \
@@ -25,6 +26,12 @@ sorted_letters = sorted(letters.items(), key=lambda item: item[1], reverse=True)
 print("Number of letters: ")
 for x in range(len(sorted_letters)):
     print(sorted_letters[x])
+
+with open('letters.csv', 'w') as csv_file:
+    writer = csv.writer(csv_file)
+    for key, value in letters.items():
+        writer.writerow([key, value])
+    csv_file.close()
 
 # Remove punctuation
 word_string = cipher.replace(',', '').replace('.', '').replace('--', '')
