@@ -36,6 +36,14 @@ string = "uosulmkgu fumucfjb bcm euul jrlpxjsup kl rfpuf sr kdwfrgu sbu mujxfkst
 
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
             'v', 'w', 'x', 'y', 'z']
-
+letters = {}
 for i in range(len(alphabet)):
-    print(alphabet[i])
+    # print(alphabet[i])
+    # print("{} letter count: {} ".format(alphabet[i], string.count(alphabet[i])))
+    letters[alphabet[i]] = string.count(alphabet[i])
+
+# print(letters)
+sorted_letters = sorted(letters.items(), key=lambda item: item[1], reverse=True)
+# print(sorted_letters)
+for x in range(len(sorted_letters)):
+    print(sorted_letters[x])
