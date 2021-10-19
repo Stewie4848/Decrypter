@@ -41,7 +41,7 @@ def write_plaintext():
     print(plaintext)
 
 
-COUNT = 7
+COUNT = 5
 
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
             'v', 'w', 'x', 'y', 'z']
@@ -71,29 +71,6 @@ for l in cipher:
             trigrams[trigram] = 1
     index += 1
 
-    # try:
-    #     trigram = l + l[index + 1] + l[index + 2]
-    #
-    # except IndexError:
-    #     pass
-    # else:
-    #     trigram = l + l[index + 1] + l[index + 2]
-    #     if trigram in trigrams:
-    #         trigrams[trigram] += 1
-    #     else:
-    #         trigrams[trigram] = 0
-
-    # if len(trigram) == 3:
-    #     if trigram in trigrams:
-    #         trigrams[trigram] += 1
-    #         trigram = l + l[index + 1] + l[index + 2]
-    #
-    #     else:
-    #         trigrams[trigram] = l + l[index + 1] + l[index + 2]
-    #     trigram = l + l[index + 1] + l[index + 2]
-    # else:
-    #     trigram += l
-    # index += 1
 
 
 # sorted_trigrams = {}
@@ -101,23 +78,98 @@ for l in cipher:
 
 digram = ""
 digrams = {}
+index = 0
 for l in cipher:
-    if len(digram) == 2:
+    if index < len(cipher) - 2:
+        digram = l + cipher[index + 1]
         if digram in digrams:
             digrams[digram] += 1
-            digram = l
-
         else:
             digrams[digram] = 1
-        digram = l
-    else:
-        digram += l
+    index += 1
+
+
+quadgram = ""
+quadgrams = {}
+index = 0
+for l in cipher:
+    if index < len(cipher) - 4:
+        quadgram = l + cipher[index + 1] + cipher[index + 2] + cipher[index + 3]
+        if quadgram in quadgrams:
+            quadgrams[quadgram] += 1
+        else:
+            quadgrams[quadgram] = 1
+    index += 1
+
+quint = ""
+quints = {}
+index = 0
+for l in cipher:
+    if index < len(cipher) - 5:
+        quint = l + cipher[index + 1] + cipher[index + 2] + cipher[index + 3] + cipher[index + 4]
+        if quint in quints:
+            quints[quint] += 1
+        else:
+            quints[quint] = 1
+    index += 1
+
+hexe = ""
+hexes = {}
+index = 0
+for l in cipher:
+    if index < len(cipher) - 6:
+        hexe = l + cipher[index + 1] + cipher[index + 2] + cipher[index + 3] + cipher[index + 4] + cipher[index + 5]
+        if hexe in hexes:
+            hexes[hexe] += 1
+        else:
+            hexes[hexe] = 1
+    index += 1
+
+sept = ""
+septs = {}
+index = 0
+for l in cipher:
+    if index < len(cipher) - 7:
+        sept = "{0}{1}{2}{3}{4}{5}{6}".format(l, cipher[index + 1], cipher[index + 2], cipher[index + 3],
+                                              cipher[index + 4], cipher[index + 5], cipher[index + 6])
+        if sept in septs:
+            septs[sept] += 1
+        else:
+            septs[sept] = 1
+    index += 1
+
+
 
 
 sorted_trigrams = sorted(trigrams.items(), key=lambda item: item[1], reverse=True)
 print(sorted_trigrams)
 sorted_digrams = sorted(digrams.items(), key=lambda item: item[1], reverse=True)
 print(sorted_digrams)
+
+sorted_quadgrams = sorted(quadgrams.items(), key=lambda item: item[1], reverse=True)
+print(sorted_quadgrams)
+sorted_quints = sorted(quints.items(), key=lambda item: item[1], reverse=True)
+print(sorted_quints)
+sorted_hexes = sorted(hexes.items(), key=lambda item: item[1], reverse=True)
+print(sorted_hexes)
+sorted_septs = sorted(septs.items(), key=lambda item: item[1], reverse=True)
+print(sorted_septs)
+
+index = 6
+shift = {}
+for l in cipher:
+    if index == 6:
+        if l in shift:
+            shift[l] += 1
+        else:
+            shift[l] = 1
+        index = 0
+    index += 1
+
+
+sorted_shift = sorted(shift.items(), key=lambda item: item[1], reverse=True)
+print("Sorted shifts: ")
+print(sorted_shift)
 
 
 count = 0
