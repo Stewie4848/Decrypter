@@ -193,6 +193,24 @@ with open('letters.csv', 'w') as csv_file:
     csv_file.close()
 
 
+KEYWORD = [14, 17, 8, 6, 8, 13]
+plaintext = ''
+
+index = 0
+for l in cipher:
+    letter_place = alphabet.index(l) - KEYWORD[index]
+    if letter_place < 0:
+        letter_place = 26 + letter_place
+    plaintext += alphabet[letter_place]
+    if index == 5:
+        index = 0
+    else:
+        index += 1
+
+print("Plaintext")
+print(plaintext)
+
+
 
 
 
