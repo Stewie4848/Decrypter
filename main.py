@@ -155,7 +155,7 @@ print(sorted_hexes)
 sorted_septs = sorted(septs.items(), key=lambda item: item[1], reverse=True)
 print(sorted_septs)
 
-index = 6
+index = 1
 shift = {}
 for l in cipher:
     if index == 6:
@@ -167,6 +167,7 @@ for l in cipher:
     index += 1
 
 
+print(shift)
 sorted_shift = sorted(shift.items(), key=lambda item: item[1], reverse=True)
 print("Sorted shifts: ")
 print(sorted_shift)
@@ -182,6 +183,7 @@ for l in cipher:
         cipherText += l
         count += 1
 
+print("6 letter ciphertext")
 print(cipherText)
 
 with open('letters.csv', 'w') as csv_file:
@@ -189,6 +191,9 @@ with open('letters.csv', 'w') as csv_file:
     for key, value in letters.items():
         writer.writerow([key, value])
     csv_file.close()
+
+
+
 
 
 # Dictionary for the correct letters derived from the testing
